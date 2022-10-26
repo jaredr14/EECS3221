@@ -1,0 +1,13 @@
+1. All start with pthread_ (man -s 7 pthreads)
+
+2. mutex, condition variables. Some implementations have semaphores)
+
+3. POSIX threads do not guarantee that the condition that was true
+    at the time of the signal will be true when the thread wakes
+
+4. The first thread that acquires the mutex it held when it blocked.
+
+5. Stays locked. Generally a bad practice.
+
+6. A thread that dies immediately after execution of pthread_exit without
+    waiting for a join. (man -s 3 pthread_detach)

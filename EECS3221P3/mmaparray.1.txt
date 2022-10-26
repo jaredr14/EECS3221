@@ -1,0 +1,49 @@
+MMAPARRAY			        Program Manual			       MMAPARRAY
+
+NAME
+	mmaparray --  use mmap to create, inspect and modify arrays that exist on the disk as files. The program will memory map the file and manipulate it as an array
+SYNOPSIS
+	simul [--index] [int val ...] [--age] [int float ...] [--filename] [char str[.....]] [--name] [char str[.....]] [--set] [--get] [--create] [--print] [--maxindex] [--delete]
+
+DESCRIPTION
+	The program mmaparray simulates the use of mmap to create, inspect and modify arrays that exist on the disk as files.
+
+	The program mmaparray memory maps the file and manipulate it as an array.
+
+	The optional arguments to marker are as follows:
+
+		--filename.................specifies the file name to be used in subsequent commands like --create or --set. If this option is not give the filename defaults to namedb.
+		--index....................specifies the index to be used in subsequent commands like --set or --get
+		--name.....................specifies the name to be used in subsequent commands like --set.
+		--age......................specifies the age to be used in subsequent commands like --set.
+                --set......................modifies the array entry pointed to by index with values name and age. Age, name and index hav e to be specified by the corresponding command line option earlier.
+                --get......................prints the array entry pointed to by index. Index hav e to be specified by the corresponding command line option earlier.
+                --create...................creates a file with name specified by the most recent --filename command and size specified by the most recent --index command.
+                --print....................prints all valid entries in the array.
+                --maxindex.................returns the maximum index of the cuurent array.
+                --delete...................deletes the element pointed to by the latest --index command by invalidating it.
+
+EXIT STATUS
+	In successful completion, program mmaparray will memory map the file and manipulate the array according to the command line arguments.
+
+	Upon the occurrence of an error, program mmaparray writes the error to stderr and exits with status 1.
+
+EXAMPLE
+	The command:
+
+		./mmaparray
+
+	will start program mmaparray with a filename of "namedb", size of -1, name of NULL, array set to NULL, index of -1, and age of -1.0
+
+	The command:
+
+		./mmaparray --index 10 --name Minas --age 10 --set
+
+	will start program mmaparray with index: 10, name: Minas, age: 10.000000 and set the array at index 10 with the name Minas and the age 10.000000 and make it valid.
+
+
+BUGS
+	None currently known to the author.
+
+AUTHOR
+	Jared Rego. Email: jaredr14@my.yorku.ca

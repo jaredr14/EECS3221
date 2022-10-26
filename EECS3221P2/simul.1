@@ -1,0 +1,44 @@
+SIMUL			        Program Manual			       SIMUL
+
+NAME
+	simul -- simulates the Dining Philosophers problem and reports the average thinking, hungry, and eating time of N philosophers (threads)
+
+SYNOPSIS
+	simul [-NT] [int val ...] [-LM] [float val ...]
+
+DESCRIPTION
+	The program simul simulates the Dining Philosophers threading problem by treating each philosopher as a thread that can be in one of three states: thinking, hungry, 	eating.  To avoid deadlock amongst the philosophers due to insufficient amount of 	chopsticks for the philosophers to eat with, synchronization mechanisms are used. 	Namely, condition variables and mutexes.
+
+	The program simul reports the average "time" the N philosophers spend in the thinking, hungry, and eating state.
+
+	The optional arguments to marker are as follows:
+
+		-N		total number of philosophers (threads)
+		-T		total number of cycles
+		-L		lambda - determinant reference value for a philosopher to switch from thinking to hungry state
+		-M		mu - determinant reference value for a philosopher to switch from hungry to eating state
+
+EXIT STATUS
+	In successful completion, program simul prints the average thinking, hungry, and eating time of all N threads to the stdout, and exits with status 0.
+
+	Upon the occurrence of an error, program simul writes the error to stderr and exits with status 1.
+
+EXAMPLE
+	The command:
+
+		./simul
+
+	will start program simul with 5 philosophers, maximum cycle count of 100, lambda as 0.1, and mu as 0.2.
+
+	The command:
+
+		./simul -N 5 -T 21 -L 0.6 -M 0.3
+
+	will start program simul with 5 philosophers, maximum cycle count of 21, lambda as 0.6, and mu as 0.3.
+
+
+BUGS
+	None currently known to the author.
+
+AUTHOR
+	Jared Rego. Email: jaredr14@my.yorku.ca
